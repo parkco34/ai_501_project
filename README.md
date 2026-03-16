@@ -40,5 +40,5 @@ K-Means will be used to locate **behavioral segments of shoppers** based on brow
 2. __Logistic Regression__
 Logistic Regression provides an *interpretable baseline classifier*.
 The model estimates the probability of a purchase:
-$$P(y = 1|x) = \frac{1}{1 + e^{-(\beta_{0} + \beta^{T}x)}}$$
+> $$P(y = 1|x) = \frac{1}{1 + e^{-(\beta_{0} + \beta^{T}x)}}$$
 
