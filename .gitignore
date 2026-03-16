@@ -1,9 +1,0 @@
-# Files
-*.csv
-delete*
-pyvenv.cfg
-
-# Directories
-lib/
-bin/
-include/
