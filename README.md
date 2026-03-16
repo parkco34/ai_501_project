@@ -51,9 +51,9 @@ The model estimates the probability of a purchase:
 An ensemble learning method, which aggregates multiple decision trees.
 
 **Advantages:**
-    - Handles nonlinear relationships
-    - Robust to overfitting
-    - Provides feature importance metric
+- Handles nonlinear relationships
+- Robust to overfitting
+- Provides feature importance metric
     
 4. __Support Vector Machine (SVM)__
 Attempts to find the maximum-margin hyperplane separating the classes.
