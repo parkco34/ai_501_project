@@ -1,220 +1,97 @@
 # Online Shoppers Purchasing Intention Prediction
-Course: AAI-501 – Foundations of Artificial Intelligence
-Institution: University of San Diego
-Team Members: Nathan Butcher, Paola Marsal, Cory Parker, Glen Salazar
-Date: March 2026
 
-# Project Overview
-This project investigates the prediction of *online purchasing intention* using machine learning methods applied to behavorial session data from an e-commerce platform.
+This project is a part of the AAI-501 course in the Applied Artificial Intelligence Program at the University of San Diego (USD).
 
-The dataset used is the *Online Shoppers Purchasing Intention Dataset* from the *UCL Machine Learning Repository* (Sakar & Kastro, 2018).  The dataset contains *12,330 user sessions collected over a year*, where each record represents a single visitor interaction with an online shopping website.  
+**-- Project Status: Completed**
 
-Each session contains *10 numerical features and 8 categorical features* describing user behavior which includes:
-    - Number of pages visited
-    - Duration of visits
-    - Bounce rate (percentage of visitors who land on website and leave without interacting with the site)
-    - Exit rate
-    - Page value
-    - Traffic Source
-    - Visitor type
-    - Returning visitor status
+## Installation
 
-*Binary Classfication Problem*
-The target variable is *Revenue ∈ {0,1}*, where
-    0 = Session didn't result in a purchse
-    1 = Session did result in a purchase
+To use this project, first clone the repo on your device using the command below:
 
-## Business Motivation
-Predicting purchase intention is important in for e-commerce platforms.
-Accurate prediction enables organizations to:
-    - Personalize user experiences in real time
-    - Optimize marketing and advertising spend
-    - Reduce rate which the cart is abandoned
-    - Target high-value customers
-    - Improve conversion rates
-   
-## Algorithms Used
-1. __K-Means Clustering (Unsupervised Learning)__
-K-Means will be used to locate **behavioral segments of shoppers** based on browsing patterns.
+```bash
+git init
+git clone https://github.com/parkco34/ai_501_project.git
+```
 
-2. __Logistic Regression__
-Logistic Regression provides an *interpretable baseline classifier*.
-The model estimates the probability of a purchase:
-> $$P(y = 1|x) = \frac{1}{1 + e^{-(\beta_{0} + \beta^{T}x)}}$$
+Then install the required packages:
 
-**Advantages:**
-- Interpretable
-- Fast training
-- Strong baseline for binary classification
+```bash
+pip install pandas numpy seaborn matplotlib scikit-learn imbalanced-learn
+```
 
-3. __Random Forest__
-An ensemble learning method, which aggregates multiple decision trees.
+To run the consolidated notebook:
 
-**Advantages:**
-- Handles nonlinear relationships
-- Robust to overfitting
-- Provides feature importance metric
-    
-4. __Support Vector Machine (SVM)__
-Attempts to find the maximum-margin hyperplane separating the classes.
+```bash
+cd notebooks
+jupyter notebook team4_consolidated.ipynb
+```
 
-Optimization Objective:
-> $$min_{_{w,b}}\frac{1}{2}||w||^{2}$$
-> $$y_{i}(w \dot x_{i} + b) \leq 1$$
+## Project Intro/Objective
 
-## Dataset
+The purpose of this project is to predict whether an online shopping session will result in a purchase, using machine learning methods applied to behavioral session data from an e-commerce platform. The system combines unsupervised clustering with supervised classification to segment shoppers by browsing behavior and predict purchase intent, generating actionable insights for e-commerce conversion optimization.
 
-**Source:** UCI Machine Learning Repository  
-**Dataset:** Online Shoppers Purchasing Intention Dataset  
+## Contributors
 
-**Observations:**  
-12,330 sessions
+- Paola Marsal (Team Lead)
+- Nathan Butcher
+- Glen Salazar
+- Cory Parker
 
-**Features:**  
-18 attributes (10 numerical, 8 categorical)
+## Methods Used
 
-**Target Variable:**  
-`Revenue`
-
-**Class Distribution**
-
-- Non-purchase sessions: ~84.5%
-- Purchase sessions: ~15.5%
-
-Because the dataset is highly imbalanced, additional techniques will be explored to ensure reliable model performance.
-
----
-
-## Key Challenges
-
-### Class Imbalance
-
-The dataset is significantly skewed toward non-purchase sessions.
-
-Methods that will be investigated include:
-
-- SMOTE (Synthetic Minority Over-sampling Technique)
-- Class weighting
-- Stratified sampling
-
-These approaches aim to improve the model’s ability to correctly identify purchasing sessions.
-
----
-
-### Feature Selection
-
-With 18 available features, determining which variables contribute most to predictive performance is important.
-
-Methods considered include:
-
-- Random Forest feature importance
-- Correlation analysis
-- Recursive feature elimination
-
-This analysis may allow the model to maintain similar predictive accuracy using a reduced feature set.
-
----
-
-### Hyperparameter Tuning
-
-Model performance will be optimized through hyperparameter tuning.
-
-Examples include:
-
-**Random Forest**
-
-- `n_estimators`
-- `max_depth`
-- `min_samples_split`
-
-**Support Vector Machine**
-
-- `kernel`
-- `C` (regularization parameter)
-- `gamma`
-
-Grid search or randomized search will be used to identify well-performing parameter combinations.
-
----
-
-### Optimal Number of Clusters
-
-For K-Means clustering, determining the appropriate number of clusters is necessary.
-
-Methods used:
-
-- Elbow Method
-- Silhouette Score
-
-These metrics help identify meaningful shopper behavioral segments.
-
----
-
-## Model Evaluation
-
-Models will be evaluated using common classification metrics:
-
-- **Accuracy** – overall prediction correctness  
-- **Precision** – proportion of predicted purchases that were correct  
-- **Recall** – proportion of actual purchases correctly identified  
-- **F1 Score** – harmonic mean of precision and recall  
-- **AUROC** – area under the receiver operating characteristic curve  
-
-Visualization techniques will include:
-
-- Confusion matrices
-- ROC curves
-- Feature importance plots
-
----
-
-## Expected System Behavior
-
-The system developed in this project will demonstrate several capabilities.
-
-### Shopper Segmentation
-
-The K-Means clustering model will group sessions into behavioral clusters such as:
-
-- High-engagement browsers
-- Quick-exit visitors
-- High-intent buyers
-
-This allows exploratory understanding of user behavior.
-
----
-
-### Purchase Prediction
-
-The classification models will predict whether a given session will result in a purchase based on session-level behavioral metrics.
-
-Such predictions could support real-time actions such as:
-
-- personalized offers
-- targeted marketing messages
-- dynamic product recommendations
-
----
-
-### Algorithm Comparison
-
-The system will produce a comparative analysis of:
-
+- Exploratory Data Analysis
+- K-Means Clustering
 - Logistic Regression
+- Support Vector Machines (SVM)
 - Random Forest
-- Support Vector Machine
+- SMOTE Oversampling
+- Hyperparameter Tuning (GridSearchCV)
+- Feature Importance Analysis
+- Data Visualization
 
-Performance comparisons will be supported with quantitative metrics and visualizations.
+## Technologies
 
----
+- Python 3.x
+- pandas
+- NumPy
+- scikit-learn
+- imbalanced-learn
+- Matplotlib
+- Seaborn
 
-### Actionable Insights
+## Project Description
 
-By combining clustering and classification results, the system will help identify which shopper behaviors are most strongly associated with purchasing outcomes.
+**Dataset:** Online Shoppers Purchasing Intention Dataset (Sakar & Kastro, 2018), sourced from the UCI Machine Learning Repository.
 
-These insights can support decision-making in digital commerce environments.
+- **Size:** 12,330 sessions collected over one year
+- **Features:** 18 total attributes (10 numeric, 8 categorical) describing browsing behavior such as page visit counts, session durations, bounce rates, exit rates, page values, traffic source, and visitor type
+- **Target Variable:** `Revenue` (binary — purchase or no purchase)
+- **Class Distribution:** ~84.5% non-purchase, ~15.5% purchase
 
----
+The severe class imbalance was addressed using SMOTE on the training set. Four algorithms were implemented and compared: K-Means Clustering segmented shoppers into behavioral groups using the Elbow Method and Silhouette Score. Logistic Regression served as an interpretable baseline classifier. Support Vector Machine (RBF kernel) was tuned via GridSearchCV over C and gamma. Random Forest provided ensemble predictions and built-in feature importance rankings. All supervised models were evaluated using accuracy, precision, recall, F1-score, and AUROC.
+
+## Repository Structure
+
+```
+ai_501_project/
+├── notebooks/
+│   ├── team4_consolidated.ipynb    # Final consolidated notebook (all models)
+│   ├── parker_eda.ipynb            # EDA development notebook
+│   ├── parker_svm.ipynb            # SVM development notebook
+│   ├── logistic_regression.ipynb   # Logistic Regression development notebook
+│   ├── kmeans.ipynb                # K-Means development notebook
+│   └── random_forest.ipynb         # Random Forest development notebook
+├── online_shoppers_intention.csv   # Dataset
+└── README.md
+```
+
+## License
+
+This project is for academic purposes as part of the AAI-501 course at the University of San Diego.
+
+## Acknowledgments
+
+We thank Professor Andrew for guidance throughout the course.
 
 ## References
 
@@ -224,20 +101,6 @@ Chawla, N. V., Bowyer, K. W., Hall, L. O., & Kegelmeyer, W. P. (2002). SMOTE: Sy
 
 Cortes, C., & Vapnik, V. (1995). Support-vector networks. *Machine Learning*, 20(3), 273-297.
 
-Geron, A. (2022). *Hands-on machine learning with Scikit-Learn, Keras, and TensorFlow* (3rd ed.). O’Reilly Media.
-
-Poole, D. L., & Mackworth, A. K. (2023). *Artificial intelligence: Foundations of computational agents* (3rd ed.). Cambridge University Press.
-
 Sakar, C., & Kastro, Y. (2018). Online shoppers purchasing intention dataset. UCI Machine Learning Repository.
 
-Sakar, C. O., Polat, S., Katircioglu, M., & Kastro, Y. (2019). Real-time prediction of online shoppers’ purchasing intention using multilayer perceptron and LSTM recurrent neural networks. *Neural Computing and Applications*, 31(10), 6893-6908.
-
-Scikit-learn developers. (2024). Support vector machines. https://scikit-learn.org/stable/modules/svm.html
-
-
-
-
-
-
-
-
+Sakar, C. O., Polat, S., Katircioglu, M., & Kastro, Y. (2019). Real-time prediction of online shoppers' purchasing intention using multilayer perceptron and LSTM recurrent neural networks. *Neural Computing and Applications*, 31(10), 6893-6908.
